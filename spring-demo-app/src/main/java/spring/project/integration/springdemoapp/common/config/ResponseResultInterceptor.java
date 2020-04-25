@@ -1,7 +1,6 @@
 package spring.project.integration.springdemoapp.common.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import spring.project.integration.springdemoapp.common.constant.CommonConstantParam;
@@ -11,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * @Description:
+ * @Description: 处理方法拦截器 在servlet请求到方法之前的拦截处理（或其他时间）
+ * 需要注册到InterceptorRegistry拦截器列表中
  * @Author: jiahuiyang
  * @Date: Created in 16:09 2020/4/24
  */
