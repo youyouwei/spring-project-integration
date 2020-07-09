@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import spring.project.integration.springdemoapp.common.config.ResponseResult;
 import spring.project.integration.springdemoapp.domain.base.Order;
-import spring.project.integration.springdemoapp.service.OrderService;
+import spring.project.integration.springdemoapp.service.IOrderService;
 
 /**
  * @Description:
@@ -20,7 +20,8 @@ import spring.project.integration.springdemoapp.service.OrderService;
 public class DemoController {
 
     @Autowired
-    private OrderService orderService;
+    private IOrderService orderService;
+
 
     @GetMapping("{id}")
     public Order getOrder(@PathVariable("id")Integer  id) {
@@ -32,4 +33,7 @@ public class DemoController {
         Order order = orderService.getOrderById(id);
         return order;
     }
+
+
+
 }

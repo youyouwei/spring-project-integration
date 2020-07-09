@@ -1,0 +1,2 @@
+# auto config  自动配置bean  jar中如果需要被其他模块引用并未
+org.springframework.boot.autoconfigure.EnableAutoConfiguration = spring.project.integration.springdemoframework.SpringDemoAutoConfiguration

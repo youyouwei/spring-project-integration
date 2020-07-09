@@ -10,7 +10,7 @@
     </parent>
     <groupId>spring.project.integration</groupId>
     <artifactId>spring-demo-framework</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <name>spring-demo-framework</name>
     <description>Demo project for Spring Boot</description>
 

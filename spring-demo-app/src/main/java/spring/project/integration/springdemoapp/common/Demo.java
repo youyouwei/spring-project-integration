@@ -2,6 +2,11 @@ package spring.project.integration.springdemoapp.common;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import spring.project.integration.springdemoapp.SpringDemoAppApplication;
+import spring.project.integration.springdemoapp.common.config.DemoConfig;
+import spring.project.integration.springdemoapp.common.listener.EventPublisher;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -14,7 +19,15 @@ import java.util.concurrent.CountDownLatch;
 public class Demo {
     public static void main(String[] args) throws InterruptedException {
 
-        log.info("sss");
+//        log.info("sss");
+        method1();
+
+    }
+
+    public static void method1() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(DemoConfig.class);
+        EventPublisher publisher = applicationContext.getBean(EventPublisher.class);
+        publisher.publish();
 
     }
 

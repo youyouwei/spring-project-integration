@@ -7,7 +7,7 @@ import spring.project.integration.springdemoapp.domain.base.Order;
  * @Author: jiahuiyang
  * @Date: Created in 15:34 2020/4/24
  */
-public interface OrderService {
+public interface IOrderService {
     Order getOrderById(Integer id);
 
 }

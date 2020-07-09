@@ -19,6 +19,9 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import spring.project.integration.springdemoapp.service.IOrderService;
+import spring.project.integration.springdemoapp.service.impl.OrderServiceImpl;
+import spring.project.integration.springdemoframework.service.IUserService;
 
 /**
  * 使用 Junit4 进行单元测试 其中测试类和所有测试方法都要使用public修饰
@@ -42,6 +45,12 @@ public class SpringDemoAppApplicationTests {
 
     @Autowired
     private WebApplicationContext context;
+
+    @Autowired
+    private IUserService userService;
+
+    @Autowired
+    private IOrderService orderService;
 
     static {
         // 提前设置变量，防止 Test启动后设置慢
@@ -91,7 +100,13 @@ public class SpringDemoAppApplicationTests {
 
     @Test
     public void method() {
+        userService.getUser();
+    }
 
+    @Test
+    public void method1() {
+        System.out.println(orderService.getOrderById(1));
+        System.out.println(((OrderServiceImpl) orderService).getName());
     }
 
 }
