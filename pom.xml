@@ -127,5 +127,7 @@
     <modules>
         <module>spring-demo-app</module>
         <module>spring-demo-framework</module>
+        <module>spring-project-integration-parent</module>
+        <module>spring-project-integration-dependencies</module>
     </modules>
 </project>
