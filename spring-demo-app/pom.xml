@@ -23,33 +23,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <!--<exclusions>-->
-            <!--<exclusion>-->
-            <!--<artifactId>spring-boot-starter-logging</artifactId>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--</exclusion>-->
-            <!--</exclusions>-->
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <!-- <exclusions>
-                 <exclusion>
-                     <groupId>org.junit.vintage</groupId>
-                     <artifactId>junit-vintage-engine</artifactId>
-                 </exclusion>
-             </exclusions>-->
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.junit.jupiter</groupId>-->
-        <!--<artifactId>junit-jupiter-api</artifactId>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -60,17 +40,10 @@
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.cloud</groupId>-->
-        <!--<artifactId>spring-cloud-sleuth</artifactId>-->
-        <!--<version>2.0.0.RELEASE</version>-->
-        <!--</dependency>-->
-        <!--链路追踪 end-->
-
         <dependency>
             <groupId>spring.project.integration</groupId>
             <artifactId>spring-demo-framework</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
@@ -78,17 +51,5 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-
-
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>
