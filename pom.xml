@@ -14,6 +14,7 @@
     <artifactId>spring-project-integration</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <properties>
         <!--SpringBoot和SpringCloud统一版本依赖管理-->
         <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
@@ -27,6 +28,45 @@
         <mybatis.version>2.1.0</mybatis.version>
         <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
     </properties>
+
+    <!--依赖仓库私服-->
+    <!--<repositories>
+        <repository>
+            <id>releases</id>
+            <url>http://xxx:8080/nexus/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <url>http://xxx:8080/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>-->
+
+    <!--插件依赖仓库-->
+    <!--<pluginRepositories>
+        <pluginRepository>
+            <id>releases</id>
+            <url>http://xxx:8080/nexus/content/repositories/releases/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>snapshots</id>
+            <url>http://xxx:8080/nexus/content/repositories/snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>-->
+
+    <!--分布仓库管理-->
+    <!--<distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>internal repository</name>
+            <url>http://xxx:8080/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Internal Snapshot Repository</name>
+            <url>http://xxx:8080/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>-->
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -114,20 +154,79 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!--具体打包发布插件可以在对应项目中配置-->
+            <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    &lt;!&ndash;SpringBoot打可执行jar包加上后缀分类避免覆盖原始jar包 多个设置会被最后一个覆盖&ndash;&gt;
                     <classifier>exec</classifier>
+                    &lt;!&ndash;<classifier>core</classifier>&ndash;&gt;
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugin</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.1.1</version>
+                    <configuration>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                        <archive>
+                            <manifest>
+                                <mainClass>spring.project.integration.springdemoapp.SpringDemoAppApplication</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>make-assembly</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
+
     <modules>
-        <module>spring-demo-app</module>
         <module>spring-demo-framework</module>
         <module>spring-project-integration-parent</module>
         <module>spring-project-integration-dependencies</module>
+        <module>spring-demo</module>
+        <module>spring-demo2</module>
     </modules>
 </project>
