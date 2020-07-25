@@ -29,7 +29,7 @@
         <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
     </properties>
 
-    <!--依赖仓库私服-->
+    <!--依赖仓库私服 直接指定仓库的地址 如果会优先于central和mirror查找 配置多个仓库会根据配置顺序进行查找  这种一般用于没有配置setting（没有配置默认到central查找）或则mirror中没有映射所有仓库到私服-->
     <!--<repositories>
         <repository>
             <id>releases</id>
@@ -117,11 +117,13 @@
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-jdk8</artifactId>
                 <version>${org.mapstruct.version}</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-processor</artifactId>
                 <version>${org.mapstruct.version}</version>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

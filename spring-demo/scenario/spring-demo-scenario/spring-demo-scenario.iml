@@ -16,8 +16,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.mapstruct:mapstruct-jdk8:1.2.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.mapstruct:mapstruct-processor:1.2.0.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.mapstruct:mapstruct-jdk8:1.2.0.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.mapstruct:mapstruct-processor:1.2.0.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.12" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:8.0.18" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0" level="project" />
