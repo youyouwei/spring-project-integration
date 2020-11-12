@@ -7,6 +7,8 @@ package spring.project.integration.springdemoapp.common.constant;
  */
 public final class CommonConstantParam {
 
+    private CommonConstantParam() {}
+
     public static final String RESPONSE_RESULT_ANN = "RESPONSE-RESULT-ANN";
 
 }

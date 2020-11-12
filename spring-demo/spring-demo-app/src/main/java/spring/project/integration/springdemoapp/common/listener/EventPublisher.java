@@ -4,6 +4,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+import spring.project.integration.springdemoapp.common.exception.BusinessException;
+import spring.project.integration.springdemoapp.common.exception.BusinessExceptionEnum;
 
 /**
  * @Description:
@@ -22,7 +24,7 @@ public class EventPublisher implements ApplicationContextAware {
 
     public void publish() {
         if (context == null) {
-            throw new RuntimeException("Application context is not init!");
+            throw new BusinessException(BusinessExceptionEnum.PARAM_IS_NULL);
         }
         context.publishEvent(new SoldOutEvent(this));
     }

@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import spring.project.integration.springdemoapp.SpringDemoAppApplication;
 import spring.project.integration.springdemoapp.common.config.DemoConfig;
 import spring.project.integration.springdemoapp.common.listener.EventPublisher;
 
@@ -17,11 +16,9 @@ import java.util.concurrent.CountDownLatch;
  */
 @Slf4j
 public class Demo {
-    public static void main(String[] args) throws InterruptedException {
 
-//        log.info("sss");
+    public static void main(String[] args) {
         method1();
-
     }
 
     public static void method1() {
@@ -38,19 +35,16 @@ public class Demo {
         final CountDownLatch countDownLatch = new CountDownLatch(threadSize);
         long startTime = System.currentTimeMillis();
         for (int ts = 0; ts < threadSize; ts++) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
+            new Thread(() -> {
                     for (int es = 0; es < everySize; es++) {
                         log.info("========info");
                     }
                     countDownLatch.countDown();
-                }
             }).start();
         }
         countDownLatch.await();
         long endTime = System.currentTimeMillis();
-        System.out.println("logback:messageSize = " + messageSize + " ,threadSize = " + threadSize + " ,costTime = " + (endTime - startTime) + "ms");
+        log.info("logback:messageSize = " + messageSize + " ,threadSize = " + threadSize + " ,costTime = " + (endTime - startTime) + "ms");
     }
 
     @Data
