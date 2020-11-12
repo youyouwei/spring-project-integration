@@ -2,6 +2,7 @@ package spring.project.integration.springdemoframework;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import spring.project.integration.springdemoframework.service.IUserService;
 import spring.project.integration.springdemoframework.service.impl.UserServiceImpl;
 
@@ -17,6 +18,7 @@ import spring.project.integration.springdemoframework.service.impl.UserServiceIm
  * @Date: Created in 12:02 2020/5/29
  */
 @Configuration
+@Scope
 public class SpringDemoAutoConfiguration {
 
     @Bean

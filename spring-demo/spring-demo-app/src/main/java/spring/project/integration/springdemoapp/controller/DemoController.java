@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import spring.project.integration.springdemoapp.common.config.ResponseResult;
 import spring.project.integration.springdemoapp.domain.base.Order;
 import spring.project.integration.springdemoapp.service.IOrderService;
+import spring.project.integration.springlogoperate.LogOperateService;
 
 /**
  * @Description:
@@ -22,6 +23,9 @@ public class DemoController {
     @Autowired
     private IOrderService orderService;
 
+    @Autowired
+    private LogOperateService logOperateService;
+
 
     @GetMapping("{id}")
     public Order getOrder(@PathVariable("id")Integer  id) {
@@ -31,6 +35,8 @@ public class DemoController {
         //3、核心步骤就是实现接口ResponseBodyAdvice和@ControllerAdvice，判断是否需要包装返回值，如果需要，就把Controller接口的返回值进行重写。
 
         Order order = orderService.getOrderById(id);
+        logOperateService.operate();
+
         return order;
     }
 

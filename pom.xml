@@ -230,5 +230,6 @@
         <module>spring-project-integration-dependencies</module>
         <module>spring-demo</module>
         <module>spring-demo2</module>
+        <module>spring-log-operate</module>
     </modules>
 </project>
