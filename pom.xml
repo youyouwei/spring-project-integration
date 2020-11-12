@@ -229,7 +229,6 @@
         <module>spring-project-integration-parent</module>
         <module>spring-project-integration-dependencies</module>
         <module>spring-demo</module>
-        <module>spring-demo2</module>
-        <module>spring-log-operate</module>
+        <module>spring-log-module</module>
     </modules>
 </project>

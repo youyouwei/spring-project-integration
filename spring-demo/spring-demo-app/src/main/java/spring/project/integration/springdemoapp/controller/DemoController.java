@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import spring.project.integration.springdemoapp.common.config.ResponseResult;
 import spring.project.integration.springdemoapp.domain.base.Order;
 import spring.project.integration.springdemoapp.service.IOrderService;
-import spring.project.integration.springlogoperate.LogOperateService;
+import spring.project.integration.springlogmodule.LogOperateService;
 
 /**
  * @Description:

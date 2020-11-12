@@ -41,7 +41,7 @@
 
         <dependency>
             <groupId>spring.project.integration</groupId>
-            <artifactId>spring-log-operate</artifactId>
+            <artifactId>spring-log-module</artifactId>
             <version>${project.version}</version>
         </dependency>
 

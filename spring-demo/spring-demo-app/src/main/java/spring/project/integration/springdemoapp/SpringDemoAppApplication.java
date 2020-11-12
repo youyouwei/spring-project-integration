@@ -2,7 +2,7 @@ package spring.project.integration.springdemoapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import spring.project.integration.springlogoperate.EnableLogOperate;
+import spring.project.integration.springlogmodule.EnableLogOperate;
 
 /**
  * @Description:
