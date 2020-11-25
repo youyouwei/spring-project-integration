@@ -1,6 +1,10 @@
 server:
   port: 8080
 spring:
+#  也可以通过环境变量 或则vm参数传入 -Dspring.profiles.active
+#  如果指定profiles SpringBoot在启动过程中会自动找对应的指定active的配置文件，然后覆盖到application.yml中
+#  profiles:
+#    active: dev
   application:
     name: spring-demo-app
 #  数据库配置
@@ -18,4 +22,11 @@ mybatis:
 #    开启驼峰命名
   configuration:
     map-underscore-to-camel-case: true
+
+
+fruit:
+  name: banana
+  type: hainan
+
+
 

@@ -1,8 +1,10 @@
 package spring.project.integration.springdemoframework;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+import spring.project.integration.springdemoframework.config.DemoAutoConfigurationCondition;
 import spring.project.integration.springdemoframework.service.IUserService;
 import spring.project.integration.springdemoframework.service.impl.UserServiceImpl;
 
@@ -18,7 +20,8 @@ import spring.project.integration.springdemoframework.service.impl.UserServiceIm
  * @Date: Created in 12:02 2020/5/29
  */
 @Configuration
-@Scope
+//@Conditional可以和 spring.factories中的EnableAutoConfiguration 结合使用，限制自动注入的条件，如必须要加载某些包或则其他bean注入成功才能完成自动配置
+@Conditional(DemoAutoConfigurationCondition.class)
 public class SpringDemoAutoConfiguration {
 
     @Bean

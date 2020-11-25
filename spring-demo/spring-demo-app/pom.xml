@@ -12,17 +12,29 @@
     <artifactId>spring-demo-app</artifactId>
 
     <dependencies>
-        <!--移除框架中的logback-->
+
+        <!--本地依赖-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>spring.project.integration</groupId>
+            <artifactId>spring-demo-scenario</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>spring.project.integration</groupId>
+            <artifactId>spring-demo-framework</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>spring.project.integration</groupId>
+            <artifactId>spring-log-module</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+
+        <!--三方依赖-->
+        <!--移除框架中的logback-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -32,19 +44,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>spring.project.integration</groupId>
-            <artifactId>spring-demo-framework</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>spring.project.integration</groupId>
-            <artifactId>spring-log-module</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
