@@ -50,5 +50,24 @@
             <optional>true</optional>
         </dependency>
 
+
+        <!--h2 database-->
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <!--<version>1.4.194</version>-->
+            <scope>runtime</scope>
+        </dependency>
+        <!--h2在19年和之后的版本默认不会创建数据库 所以在web-console访问时会提示数据库不存在-->
+        <!--<dependency>-->
+            <!--<groupId>com.h2database</groupId>-->
+            <!--<artifactId>h2</artifactId>-->
+            <!--<version>1.4.197</version>-->
+        <!--</dependency>-->
     </dependencies>
 </project>

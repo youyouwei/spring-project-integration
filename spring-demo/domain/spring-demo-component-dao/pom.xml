@@ -12,5 +12,9 @@
 
     <artifactId>spring-demo-component-dao</artifactId>
 
+    <dependencies>
+
+    </dependencies>
+
 
 </project>

@@ -1,5 +1,6 @@
 package spring.project.integration.springdemoscenario.config.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -49,6 +50,26 @@ public class LogOperateAspect {
         System.out.println("before person eat some thing...");
     }
 
+    @Pointcut("execution(* spring.project.integration.*.*(..))")
+    public void validateObjectPointCut() {}
 
+    @Before("validateObjectPointCut()")
+    public void validateObjectAroundAction(JoinPoint jp)
+            throws Throwable {
+        /*ValidateSingleArgument annotation =
+                ((MapperMethod.MethodSignature) jp.getStaticPart().getSignature()).getMethod().getAnnotation(ValidateSingleArgument.class);
+        int requestIndex = annotation.requestIndex();
+        // Get a reference to the object to be validated.
+        Object obj = (jp.getArgs()[requestIndex]);
 
+        // Validate.
+        ValidationErrors errors = validationUtil.validate(obj);
+
+        if (errors.getValidationErrors().size() > 0) {
+            throw new QValidationException(errors);
+        }*/
+    }
 }
+
+
+

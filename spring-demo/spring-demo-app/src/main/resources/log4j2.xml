@@ -42,7 +42,7 @@
             includeLocation="true">
             <AppenderRef ref="RandomAccessFile" />
         </AsyncLogger> -->
-        <Root level="info" includeLocation="true">
+        <Root level="debug" includeLocation="true">
             <AppenderRef ref="STDOUT" />
         </Root>
     </loggers>
