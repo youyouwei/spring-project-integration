@@ -39,10 +39,23 @@ fruit:
 #  Diary
 logging:
   level:
-    root: debug  # 配置root级别日志级别 默认是info
+    root: info  # 配置root级别日志级别 默认是info
 
     cn:
       felord: debug
+
+user-map:
+  maps:
+    admin:
+      username: 'admin'
+      password: '123456'
+      node_id: '1'
+      node_name: '集团'
+    dianchegongsi2:
+      username: 'yifengongsi'
+      password: '123456'
+      node_id: '9'
+      node_name: '一分公司'
 
 
 
