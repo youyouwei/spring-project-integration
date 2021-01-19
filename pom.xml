@@ -143,6 +143,15 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
         <!--数据库连接和Mybatis-->
         <dependency>
             <groupId>mysql</groupId>
@@ -292,5 +301,6 @@
         <module>spring-project-integration-dependencies</module>
         <module>spring-demo</module>
         <module>spring-log-module</module>
+        <module>qqq</module>
     </modules>
 </project>

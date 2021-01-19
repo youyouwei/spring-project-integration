@@ -39,7 +39,7 @@ fruit:
 #  Diary
 logging:
   level:
-    root: warn  # 配置root级别日志级别 默认是info
+    root: debug  # 配置root级别日志级别 默认是info
 
     cn:
       felord: debug
