@@ -1,79 +1,69 @@
 package spring.project.integration.springdemoapp.common;
 
-import com.google.common.collect.Lists;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import spring.project.integration.springdemoapp.common.config.DemoConfig;
-import spring.project.integration.springdemoapp.common.listener.EventPublisher;
-
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Description:
  * @Author: jiahuiyang
- * @Date: Created in 16:01 2020/4/28
+ * @Date: Created in 20:46 2021/1/27
  */
-@Slf4j
 public class Demo {
 
     public static void main(String[] args) {
-//        method1();
-        method3();
+
+        int[] strs = {1, 1, 3, 2, 4, 4};
+        System.out.println(sort(strs, 2));
     }
 
-    public static void method1() {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(DemoConfig.class);
-        EventPublisher publisher = applicationContext.getBean(EventPublisher.class);
-        publisher.publish();
-
-    }
-
-    public static void method() throws InterruptedException {
-        int messageSize = 1000000;
-        int threadSize = 50;
-        final int everySize = messageSize / threadSize;
-        final CountDownLatch countDownLatch = new CountDownLatch(threadSize);
-        long startTime = System.currentTimeMillis();
-        for (int ts = 0; ts < threadSize; ts++) {
-            new Thread(() -> {
-                    for (int es = 0; es < everySize; es++) {
-                        log.info("========info");
-                    }
-                    countDownLatch.countDown();
-            }).start();
+    private static Map<Integer, Integer> sort(int[] strs, int n) {
+        if (strs == null || strs.length == 0) {
+            return new HashMap<>();
         }
-        countDownLatch.await();
-        long endTime = System.currentTimeMillis();
-        log.info("logback:messageSize = " + messageSize + " ,threadSize = " + threadSize + " ,costTime = " + (endTime - startTime) + "ms");
+
+        Map<Integer, Integer> tempMap = new HashMap<>();
+
+        for (int i = 0; i < strs.length; i++) {
+            if ((tempMap.get(strs[i])) != null) {
+                tempMap.put(strs[i], tempMap.get(strs[i]) + 1);
+            } else {
+                tempMap.put(strs[i], 1);
+            }
+        }
+        Integer[] keys = new Integer[]{};
+        keys = tempMap.keySet().toArray(keys);
+        quickSort(keys, 0, keys.length - 1);
+        Map<Integer, Integer> result = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            result.put(keys[i], tempMap.get(keys[i]));
+        }
+        return result;
     }
 
-    @Data
-    static class App {
-        private String name;
+    //快速排序
+    public static void quickSort(Integer[] x, int low, int high) {
+        if (low < high) {
+            int index = partSort(x, low, high);
+            quickSort(x, low, index - 1);
+            quickSort(x, index + 1, high);
+        }
     }
 
-
-    public static void method3() {
-        //创建集合 使用工厂方法
-        List<String> list = Lists.newArrayList();
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        //集合转换 泛型类型转换
-        List<Integer> integerList = Lists.transform(list, Integer::valueOf);
-
-
-
-
-
-
-
-
-
-
+    public static int partSort(Integer[] x, int low, int high) {
+        int mid = x[low];
+        while (low < high) {
+            while (low < high && x[high] >= mid) {
+                high--;
+            }
+            x[low] = x[high];
+            while (low < high && x[low] <= mid) {
+                low++;
+            }
+            x[high] = x[low];
+        }
+        x[low] = mid;
+        return low;
     }
+
 
 }
